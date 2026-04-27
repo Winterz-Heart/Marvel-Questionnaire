@@ -1,12 +1,12 @@
 import "./SubmitNextButton.css"
 
-function SubmitNextButton({ onClick }) {
+function SubmitNextButton({ onClick, disable, children }) {
     return (
         <div
-            className="SubmitNextButton"
-            onClick={onClick}
+            className={`SubmitNextButton ${disable ? "disable" : ""}`}
+            onClick={!disable ? onClick : undefined}
         >
-            <p>Submit</p>
+            <p>{children}</p>
         </div>
     )
 };

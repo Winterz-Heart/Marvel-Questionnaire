@@ -88,10 +88,22 @@ function MainBlock() {
             </div>
             <div className="BottomBar" >
                 <HelpButton />
-                <Score score={score} />
-                <SubmitNextButton
-                    onClick={handleSubmit}
+                <Score
+                    score={score}
                 />
+                <SubmitNextButton
+                    onClick={isSubmitted ? handleNextQuestion : handleSubmit}
+                    disable={
+                        (!selectedAnswer && !isSubmitted) ||
+                        (isSubmitted && currentQuestionIndex === questions.length -1)
+                    }
+                >  
+                    {isSubmitted
+                    ? currentQuestionIndex === questions.length - 1
+                        ? "Finish"
+                        : "Next"
+                    : "Submit"}
+                </SubmitNextButton>
             </div>
         </div>
     )

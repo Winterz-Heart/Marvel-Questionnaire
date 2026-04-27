@@ -1,0 +1,10 @@
+.Answer {
+    align-content: center;
+    outline: 1px solid black;
+    border-radius: 20px;
+
+    width: 260px;
+    height: 90px;
+
+    margin-bottom: 20px;
+}

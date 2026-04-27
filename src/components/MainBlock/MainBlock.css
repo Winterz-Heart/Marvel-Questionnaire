@@ -1,0 +1,41 @@
+.MainBlock {
+    width: 600px;
+    outline: 1px solid black;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.1);
+}
+
+.AnswerBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.AnswerRowOne, .AnswerRowTwo {
+    height: 45%;
+}
+
+.AnswerRowOne :hover, .AnswerRowTwo :hover {
+    box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.1);
+}
+
+.BottomBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 0px 30px 20px 30px;
+}
+
+.BottomBar :hover {
+    box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.1);
+}
+
+.Answer :hover, .HelpButton :hover, .Score :hover, .SubmitNextButton :hover {
+    box-shadow: none !important;
+}
+
+.Score, .Score:hover, .BottomBar .Score, .BottomBar .Score:hover {
+    box-shadow: none !important;
+}

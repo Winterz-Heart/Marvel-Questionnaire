@@ -1,9 +1,9 @@
 import "./AnswerButton.css"
 
-function AnswerButton() {
+function AnswerButton({ answer }) {
     return (
         <div className="Answer">
-            <p>answer</p>
+            <p>{answer}</p>
         </div>
     )
 }

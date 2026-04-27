@@ -6,18 +6,34 @@ import SubmitNextButton from "../SubmitNextButton/SubmitNextButton";
 
 import "./MainBlock.css"
 
+import { questions } from "../../data/Question&Answers";
+import { useState } from "react";
+
+function shuffleArray(array) {
+    // Fisher-Yates shuffle
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
 function MainBlock() {
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+    const currentQuestion = questions[currentQuestionIndex];
+    const shuffledAnswers = shuffleArray(currentQuestion.answers)
+
     return (
         <div className="MainBlock" >
-            <Question />
+            <Question text={currentQuestion.questionText}/>
             <div className="AnswerBlock" >
                 <div className="AnswerRowOne" >
-                    <AnswerButton />
-                    <AnswerButton />
+                    <AnswerButton answer={shuffledAnswers[0]} />
+                    <AnswerButton answer={shuffledAnswers[1]} />
                 </div>
                 <div className="AnswerRowTwo" >
-                    <AnswerButton />
-                    <AnswerButton />
+                    <AnswerButton answer={shuffledAnswers[2]} />
+                    <AnswerButton answer={shuffledAnswers[3]} />
                 </div>
             </div>
             <div className="BottomBar" >

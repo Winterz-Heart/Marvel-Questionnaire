@@ -1,7 +1,7 @@
-function Question() {
+function Question({ text }) {
     return (
         <div className="Question" >
-            <p>Question</p>
+            <p>{text}</p>
         </div>
     )
 };

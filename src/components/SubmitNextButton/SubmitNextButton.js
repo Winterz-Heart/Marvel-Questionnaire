@@ -1,8 +1,11 @@
 import "./SubmitNextButton.css"
 
-function SubmitNextButton() {
+function SubmitNextButton({ onClick }) {
     return (
-        <div className="SubmitNextButton" >
+        <div
+            className="SubmitNextButton"
+            onClick={onClick}
+        >
             <p>Submit</p>
         </div>
     )

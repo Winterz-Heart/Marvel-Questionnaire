@@ -8,3 +8,15 @@
 
     margin-bottom: 20px;
 }
+
+.selected {
+    font-weight: bold;
+}
+
+.correct {
+    background-color: green;
+}
+
+.incorrect {
+    background-color: red;
+}

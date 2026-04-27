@@ -1,7 +1,7 @@
-function Score() {
+function Score({ score }) {
     return (
         <div className="Score" >
-            <p>Score</p>
+            <p>Score: {score}</p>
         </div>
     )
 };

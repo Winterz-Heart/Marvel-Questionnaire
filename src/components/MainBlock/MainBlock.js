@@ -7,7 +7,7 @@ import SubmitNextButton from "../SubmitNextButton/SubmitNextButton";
 import "./MainBlock.css"
 
 import { questions } from "../../data/Question&Answers";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 function shuffleArray(array) {
     // Fisher-Yates shuffle
@@ -20,26 +20,78 @@ function shuffleArray(array) {
 
 function MainBlock() {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+    const [selectedAnswer, setSelectedAnswer] = useState(null);
+    const [score, setScore] = useState(0);
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
     const currentQuestion = questions[currentQuestionIndex];
-    const shuffledAnswers = shuffleArray(currentQuestion.answers)
+    const shuffledAnswers =useMemo(
+        () => shuffleArray([...currentQuestion.answers]),
+        [currentQuestion]
+    );
+
+    const handleSelectAnswer = (answer) => {
+        if (!isSubmitted) {
+            setSelectedAnswer(answer);
+        }
+    };
+
+    const handleSubmit = () => {
+        setIsSubmitted(true);
+        if (selectedAnswer === questions[currentQuestionIndex].correctAnswer) {
+            setScore(score + 1);
+        }
+    }
+
+    const handleNextQuestion = () => {
+        setCurrentQuestionIndex(currentQuestionIndex + 1)
+        setSelectedAnswer(null);
+        setIsSubmitted(false);
+    }
 
     return (
         <div className="MainBlock" >
-            <Question text={currentQuestion.questionText}/>
+            <Question text={currentQuestion.question} />
             <div className="AnswerBlock" >
                 <div className="AnswerRowOne" >
-                    <AnswerButton answer={shuffledAnswers[0]} />
-                    <AnswerButton answer={shuffledAnswers[1]} />
+                    <AnswerButton
+                        answer={shuffledAnswers[0]}
+                        onSelect={handleSelectAnswer}
+                        isSelected={selectedAnswer === shuffledAnswers[0]}
+                        isCorrect={shuffledAnswers[0] === currentQuestion.correctAnswer}
+                        isSubmitted={isSubmitted}
+                    />
+                    <AnswerButton
+                        answer={shuffledAnswers[1]}
+                        onSelect={handleSelectAnswer}
+                        isSelected={selectedAnswer === shuffledAnswers[1]}
+                        isCorrect={shuffledAnswers[1] === currentQuestion.correctAnswer}
+                        isSubmitted={isSubmitted}
+                    />
                 </div>
                 <div className="AnswerRowTwo" >
-                    <AnswerButton answer={shuffledAnswers[2]} />
-                    <AnswerButton answer={shuffledAnswers[3]} />
+                    <AnswerButton
+                        answer={shuffledAnswers[2]}
+                        onSelect={handleSelectAnswer}
+                        isSelected={selectedAnswer === shuffledAnswers[2]}
+                        isCorrect={shuffledAnswers[2] === currentQuestion.correctAnswer}
+                        isSubmitted={isSubmitted}
+                    />
+                    <AnswerButton
+                        answer={shuffledAnswers[3]}
+                        onSelect={handleSelectAnswer}
+                        isSelected={selectedAnswer === shuffledAnswers[3]}
+                        isCorrect={shuffledAnswers[3] === currentQuestion.correctAnswer}
+                        isSubmitted={isSubmitted}
+                    />
                 </div>
             </div>
             <div className="BottomBar" >
                 <HelpButton />
-                <Score />
-                <SubmitNextButton />
+                <Score score={score} />
+                <SubmitNextButton
+                    onClick={handleSubmit}
+                />
             </div>
         </div>
     )

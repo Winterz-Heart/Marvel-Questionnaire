@@ -7,7 +7,7 @@ import SubmitNextButton from "../SubmitNextButton/SubmitNextButton";
 import "./MainBlock.css"
 
 import { questions } from "../../data/Question&Answers";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 
 function shuffleArray(array) {
     // Fisher-Yates shuffle
@@ -23,15 +23,19 @@ function MainBlock() {
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [score, setScore] = useState(0);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [shuffledQuestions, setShuffledQuestions] = useState([]);
 
     const [showStartScreen, setShowStartScreen] = useState(true);
     const [showOverlay, setShowOverlay] =  useState(false);
-
-    const shuffledQuestions = shuffleArray(questions)
+    const [showFinishOverlay, setShowFinishOverlay] = useState(false);
+    
+    useEffect(() => {
+        setShuffledQuestions(shuffleArray([...questions]))
+    }, []);
 
     const currentQuestion = shuffledQuestions[currentQuestionIndex];
     const shuffledAnswers = useMemo(
-        () => shuffleArray([...currentQuestion.answers]),
+        () => currentQuestion ? shuffleArray([...currentQuestion.answers]) : [],
         [currentQuestion]
     );
 
@@ -43,25 +47,36 @@ function MainBlock() {
 
     const handleSubmit = () => {
         setIsSubmitted(true);
-        if (selectedAnswer === questions[currentQuestionIndex].correctAnswer) {
+        if (
+            currentQuestion &&
+            selectedAnswer === currentQuestion.correctAnswer
+        ) {
             setScore(score + 1);
         }
     }
 
     const handleNextQuestion = () => {
-        setCurrentQuestionIndex(currentQuestionIndex + 1)
-        setSelectedAnswer(null);
-        setIsSubmitted(false);
+        if (currentQuestionIndex === shuffledQuestions.length -1) {
+            setShowFinishOverlay(true);
+            return;
+        } else {
+            setCurrentQuestionIndex(currentQuestionIndex + 1)
+            setSelectedAnswer(null);
+            setIsSubmitted(false);
+        }
+    }
+
+    if (!currentQuestion) {
+        return <div>Loading...</div>;
     }
 
     return (
         <div className="MainBlock" >
             {showStartScreen && (
-                <div className="Overlay" >
                     <div className="OverlayContent">
                         <p>Welcome to the Marvelous Marvel Questionnaire</p>
-                        <p>Second Line</p>
-                        <p>Third Line</p>
+                        <p>Here we have a series of 20 questions for you to answer</p>
+                        <p>Can you prove that you are a super fan?</p>
                         <br/>
                         <div
                             className="Button"
@@ -70,18 +85,17 @@ function MainBlock() {
                             <p>Start</p>
                         </div>
                     </div>
-                </div>
             )}
             {showOverlay && (
-                <div
-                    className="Overlay"
-                    onClick={() => setShowOverlay(false)}
-                >
                     <div
                         className="OverlayContent"
                         onClick={e => e.stopPropagation()}
                         >
-                        <p>Overlay</p>
+                        <p>Select your answer by clicking it. This will casue it to be highligthed</p>
+                        <p>Once you have selected your answer, hit submit. If your selcetion was correct, it will be highligthed Green.
+                            If it was wrong it will be red and the correct answer will be green.</p>
+                        <p>After you have submitted yuor answer, hit next to see the next question.</p>
+                        <br/>
                         <div
                             className="Button"
                             onClick={() => setShowOverlay(false)}
@@ -89,7 +103,6 @@ function MainBlock() {
                             <p>Return</p>
                         </div>
                     </div>
-                </div>
             )}
             <Question text={currentQuestion.question} />
             <div className="AnswerBlock" >
@@ -138,17 +151,23 @@ function MainBlock() {
                         (isSubmitted ? handleNextQuestion : handleSubmit)();
                     }}
                     disable={
-                        (!selectedAnswer && !isSubmitted) ||
-                        (isSubmitted && currentQuestionIndex === questions.length -1)
+                        (!selectedAnswer && !isSubmitted)
                     }
                 >  
                     {isSubmitted
-                    ? currentQuestionIndex === questions.length - 1
+                    ? currentQuestionIndex === shuffledQuestions.length - 1
                         ? "Finish"
                         : "Next"
                     : "Submit"}
                 </SubmitNextButton>
             </div>
+            {showFinishOverlay && (
+                <div className="OverlayContent">
+                    <p>Finish</p>
+                    <br/>
+                    <p>Final Score: {score}</p>
+                </div>
+            )}
         </div>
     )
 };

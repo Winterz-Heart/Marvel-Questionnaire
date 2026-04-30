@@ -23,6 +23,8 @@ function MainBlock() {
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [score, setScore] = useState(0);
     const [isSubmitted, setIsSubmitted] = useState(false);
+
+    const [showStartScreen, setShowStartScreen] = useState(true);
     const [showOverlay, setShowOverlay] =  useState(false);
 
     const currentQuestion = questions[currentQuestionIndex];
@@ -52,6 +54,22 @@ function MainBlock() {
 
     return (
         <div className="MainBlock" >
+            {showStartScreen && (
+                <div className="Overlay" >
+                    <div className="OverlayContent">
+                        <p>Welcome to the Marvelous Marvel Questionnaire</p>
+                        <p>Second Line</p>
+                        <p>Third Line</p>
+                        <br/>
+                        <div
+                            className="Button"
+                            onClick={() => setShowStartScreen(false)}
+                        >
+                            <p>Start</p>
+                        </div>
+                    </div>
+                </div>
+            )}
             {showOverlay && (
                 <div
                     className="Overlay"
@@ -62,6 +80,12 @@ function MainBlock() {
                         onClick={e => e.stopPropagation()}
                         >
                         <p>Overlay</p>
+                        <div
+                            className="Button"
+                            onClick={() => setShowOverlay(false)}
+                        >
+                            <p>Return</p>
+                        </div>
                     </div>
                 </div>
             )}

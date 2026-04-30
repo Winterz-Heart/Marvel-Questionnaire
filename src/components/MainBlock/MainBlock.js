@@ -27,8 +27,10 @@ function MainBlock() {
     const [showStartScreen, setShowStartScreen] = useState(true);
     const [showOverlay, setShowOverlay] =  useState(false);
 
-    const currentQuestion = questions[currentQuestionIndex];
-    const shuffledAnswers =useMemo(
+    const shuffledQuestions = shuffleArray(questions)
+
+    const currentQuestion = shuffledQuestions[currentQuestionIndex];
+    const shuffledAnswers = useMemo(
         () => shuffleArray([...currentQuestion.answers]),
         [currentQuestion]
     );

@@ -23,6 +23,7 @@ function MainBlock() {
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [score, setScore] = useState(0);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [showOverlay, setShowOverlay] =  useState(false);
 
     const currentQuestion = questions[currentQuestionIndex];
     const shuffledAnswers =useMemo(
@@ -51,6 +52,19 @@ function MainBlock() {
 
     return (
         <div className="MainBlock" >
+            {showOverlay && (
+                <div
+                    className="Overlay"
+                    onClick={() => setShowOverlay(false)}
+                >
+                    <div
+                        className="OverlayContent"
+                        onClick={e => e.stopPropagation()}
+                        >
+                        <p>Overlay</p>
+                    </div>
+                </div>
+            )}
             <Question text={currentQuestion.question} />
             <div className="AnswerBlock" >
                 <div className="AnswerRowOne" >
@@ -87,12 +101,16 @@ function MainBlock() {
                 </div>
             </div>
             <div className="BottomBar" >
-                <HelpButton />
+                <HelpButton onClick={() => {
+                    setShowOverlay(true)
+                }}  />
                 <Score
                     score={score}
                 />
                 <SubmitNextButton
-                    onClick={isSubmitted ? handleNextQuestion : handleSubmit}
+                    onClick={() => {
+                        (isSubmitted ? handleNextQuestion : handleSubmit)();
+                    }}
                     disable={
                         (!selectedAnswer && !isSubmitted) ||
                         (isSubmitted && currentQuestionIndex === questions.length -1)

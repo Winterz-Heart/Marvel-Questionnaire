@@ -1,8 +1,11 @@
 import "./HelpButton.css"
 
-function HelpButton() {
+function HelpButton({ onClick }) {
     return (
-        <div className="HelpButton">
+        <div
+            className="HelpButton"
+            onClick={onClick}
+        >
             <p>Help</p>
         </div>
     )

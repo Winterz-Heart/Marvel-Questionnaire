@@ -7,6 +7,19 @@
     height: 90px;
 
     margin-bottom: 20px;
+
+    flex: 1 1 200px;
+    max-width: 100%;
+    min-width: 120px;
+    box-sizing: border-box;
+    word-break: break-word;
+}
+
+@media (max-width: 600px) {
+    .Answer {
+        min-width: 100%;
+        margin-bottom: 4px;
+    }
 }
 
 .selected {
@@ -14,9 +27,9 @@
 }
 
 .correct {
-    background-color: green;
+    background-color: lightgreen;
 }
 
 .incorrect {
-    background-color: red;
+    background-color: lightcoral;
 }

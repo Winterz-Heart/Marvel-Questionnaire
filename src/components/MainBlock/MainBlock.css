@@ -1,16 +1,21 @@
 .MainBlock {
+    background-color: white;
     position: relative;
     width: 600px;
+    max-width: 100vw;
     outline: 1px solid black;
     border-radius: 20px;
     box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.1);
+    padding: 5px;
 }
 
 .AnswerBlock {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin: 20px;
+    gap: 1rem;
 }
 
 .AnswerRowOne, .AnswerRowTwo {
@@ -71,4 +76,23 @@
 
 .Button:hover {
     box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) {
+    .MainBlock {
+        width: 100%;
+        max-width: 100vw;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .AnswerBlock {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+    
+    .BottomBar, .AnswerBlock {
+        margin: 0 5px 10px 5px;
+    }
 }

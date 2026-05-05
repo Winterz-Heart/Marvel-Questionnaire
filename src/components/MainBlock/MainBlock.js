@@ -70,6 +70,20 @@ function MainBlock() {
         return <div>Loading...</div>;
     }
 
+    function scoreMessage(score) {
+        if (score <= 5) {
+            return "You still have much to learn about Marvel."
+        } else if (score < 5 && score <= 10) {
+            return "You've seen a few films and know a few facts."
+        } else if (score < 10 && score <= 15) {
+            return "You know more than most."
+        } else if (score < 15 && score <= 19) {
+            return "You've seen all the Marvel films haven't you?"
+        } else {
+            return "You probably know more about marvel than I do."
+        }
+    }
+
     return (
         <div className="MainBlock" >
             {showStartScreen && (
@@ -166,6 +180,8 @@ function MainBlock() {
                     <p>Finish</p>
                     <br/>
                     <p>Final Score: {score}</p>
+                    <p>{scoreMessage(score)}</p>
+                    <p>Thanks for using the Marvelous Marvel Questionnaire!</p>
                 </div>
             )}
         </div>

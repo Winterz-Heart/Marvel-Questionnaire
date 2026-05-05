@@ -67,7 +67,7 @@ export const questions = [
     {
         question: "What is Pepper Potts allergic to?",
         answers: ["Strawberries", "Cherries", "Blackberries", "Raspberries"],
-        correctAnswer: "Strawberiies",
+        correctAnswer: "Strawberries",
     },
     {
         question: "How many children does Hawkeye have?",

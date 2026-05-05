@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Overview
+Welcome to my questionnaire. I decided to use Marvel as the topic for my questionnaire and called it the "Marvelous Marvel Questionnaire".
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+It can be accessed [here](https://winterz-heart.github.io/Marvel-Questionnaire/)
 
-## Available Scripts
+![Marvel Questionnaire - 1280x800](./Readme_images/Marvel%20Questionnaire%20-%201280x800%20-%20Nest%20Hub%20Max.png)
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+**The website exists as only a single page with multipl features that are visible to the user:**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* The name of the quiz "Marvelous Marvel Questionnaire" is above the box that holds the interactable part of the website. The title is coloured black with a white outline ane white shadow added to ensure that it is visible over the background image.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![Marvel Questionnaire - Title](./Readme_images/Marvel%20Questionnaire%20-%20Title.png)
 
-### `npm test`
+* The box in the middle of the screen contains the interactable part of the quiz. When the website is first loaded up, it has an introduction to the questionnaire as well as a start button.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Marvel Questionnaire - Start](./Readme_images/Marvel%20Questionnaire%20-%20Start.png)
 
-### `npm run build`
+* Once the questionnaire is started the first question appears alonside 4 possible answers that can be chosen. When an answer is selected, the text for that coice will go **bold**.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Marvel Questionnaire - Selected Answer](./Readme_images/Marvel%20Questionnaire%20-%20Selected%20Answer.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* There is a submit button that can be selected once an answer has been chosen. Clicking the submit button will colour the correct answer Green and if the wrong answer was selected, colour that one Red. The submit button will also change to say next and once clicked show the next question.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Marvel Questionnaire - Wrong Answer](./Readme_images/Marvel%20Questionnaire%20-%20Wrong%20Answer.png)
 
-### `npm run eject`
+* The help button can be clicked at any time after starting the quiz and will bring up the help overlay, explaining how to complete the questionnaire. it laso has a return button to take you back to the questions.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Marvel Questionnaire - Help Screen](./Readme_images/Marvel%20Questionnaire%20-%20Help%20Screen.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* All of the buttons on the site have feedback with them having shadows show that they are iteractable when hovered over by having a shadow appear.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![Marvel Questionnaire - Button No Shadow](./Readme_images/Marvel%20Questionnaire%20-%20Button%20No%20Shadow.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![Marvel Questionnaire - Button Shadow](./Readme_images/Marvel%20Questionnaire%20-%20Button%20Shadow.png)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* As questions are answered the score will increase with every correct answer. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Marvel Questionnaire - Score 1](./Readme_images/Marvel%20Questionnaire%20-%20Score%201.png)
 
-### Code Splitting
+![Marvel Questionnaire - Score 7](./Readme_images/Marvel%20Questionnaire%20-%20Score%207.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* Once the final question has been answered the submit button will change to a finish one, which when clicked will load up a final screen shwoing the users score and a custom message based on how well they did.
 
-### Analyzing the Bundle Size
+![Marvel Questionnaire - Finish Button](./Readme_images/Marvel%20Questionnaire%20-%20Finish%20Button.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![Marvel Questionnaire - Final Score 8](./Readme_images/Marvel%20Questionnaire%20-%20Final%20Score%208.png)
 
-### Making a Progressive Web App
+![Marvel Questionnaire - Final Score 14](./Readme_images/Marvel%20Questionnaire%20-%20Final%20Score%2014.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+* The website is responsive with it main block being in center at all times and stacking the answers and shrinking to always be on the screen
 
-### Advanced Configuration
+![Marvel Questionnaire - 1024x600 - Nest Hub Max](./Readme_images/Marvel%20Questionnaire%20-%201280x800%20-%20Nest%20Hub%20Max.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Marvel Questionnaire](./Readme_images/Marvel%20Questionnaire%20-%20375x667%20-%20IPhone%20SE.png)

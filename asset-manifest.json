@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/github.io/Marvel-Questionnaire/static/css/main.1cf58971.css",
+    "main.js": "/github.io/Marvel-Questionnaire/static/js/main.19882649.js",
+    "static/js/453.5effe01b.chunk.js": "/github.io/Marvel-Questionnaire/static/js/453.5effe01b.chunk.js",
+    "static/media/marvel_background.png": "/github.io/Marvel-Questionnaire/static/media/marvel_background.65820eb30a743466d649.png",
+    "index.html": "/github.io/Marvel-Questionnaire/index.html",
+    "main.1cf58971.css.map": "/github.io/Marvel-Questionnaire/static/css/main.1cf58971.css.map",
+    "main.19882649.js.map": "/github.io/Marvel-Questionnaire/static/js/main.19882649.js.map",
+    "453.5effe01b.chunk.js.map": "/github.io/Marvel-Questionnaire/static/js/453.5effe01b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1cf58971.css",
+    "static/js/main.19882649.js"
+  ]
+}

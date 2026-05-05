@@ -91,10 +91,10 @@ function MainBlock() {
                         className="OverlayContent"
                         onClick={e => e.stopPropagation()}
                         >
-                        <p>Select your answer by clicking it. This will casue it to be highligthed</p>
+                        <p>Select your answer by clicking it. This will casue it to be highligthed.</p>
                         <p>Once you have selected your answer, hit submit. If your selcetion was correct, it will be highligthed Green.
-                            If it was wrong it will be red and the correct answer will be green.</p>
-                        <p>After you have submitted yuor answer, hit next to see the next question.</p>
+                            If it was wrong it will be Red and the correct answer will be Green.</p>
+                        <p>After you have submitted your answer, hit next to see the next question.</p>
                         <br/>
                         <div
                             className="Button"

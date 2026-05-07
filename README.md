@@ -87,3 +87,28 @@ To make sure that the webpage is funtional at multiple sizes I checked using Chr
     ![Marvel Questionnaire - Responsive Viewer 1](./Readme_images/Marvel%20Questionnaire%20-%20Responsive%20Viewer%201.png)
 
     ![Marvel Questionnaire - Responsive Viewer 2](./Readme_images/Marvel%20Questionnaire%20-%20Responsive%20Viewer%202.png)
+
+## Technologies Used
+
+### Was made using:
+* React (HTML, JSX)
+* CSS
+* GHPages
+
+### Made in:
+* VSCode
+
+### Version control thorugh:
+* Git
+
+### Hosting:
+* GitHub
+
+## Deployment:
+
+Webpage is live throigh GitHubPages. Can be found [here](https://Winterz-Heart.github.io/Marvel-Questionnaire).
+
+
+## Credits
+
+Background image was taken from [this](https://www.reddit.com/r/marvelstudios/comments/1h46wg6/marvel_in_2024_4k_wallpaper/) reddit post by user [Rocked03](https://www.reddit.com/user/Rocked03/)
